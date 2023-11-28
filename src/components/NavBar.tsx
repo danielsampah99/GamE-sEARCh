@@ -2,7 +2,7 @@ import logo from "../assets/logo.webp";
 
 const NavBar = () => {
 	return (
-		<nav className="flex h-fit grid-flow-col flex-wrap items-center justify-between dark:bg-zinc-800 md:col-span-2">
+		<nav className="flex h-fit grid-flow-col flex-wrap items-center justify-between dark:bg-zinc-800 md:col-span-full">
 			<img
 				className="h-12 w-12 md:h-16 md:w-16"
 				src={logo}

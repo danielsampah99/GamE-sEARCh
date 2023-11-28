@@ -1,6 +1,7 @@
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
+import GameCardContainer from "./GameCardContainer";
 
 const GameGrid = () => {
 	const { games, error, isLoading } = useGames();
@@ -11,12 +12,16 @@ const GameGrid = () => {
 		<>
 			{error && <p>{error}</p>}
 			<div className="grid grid-cols-1 justify-around gap-y-8 px-4 md:col-span-4 md:grid-cols-2 md:gap-x-7 lg:col-span-4 lg:grid-cols-3">
-				{skeletons.map(
-					(skeleton) =>
-						isLoading && <GameCardSkeleton key={skeleton} />,
-				)}
+				{isLoading &&
+					skeletons.map((skeleton) => (
+						<GameCardContainer>
+							<GameCardSkeleton key={skeleton} />
+						</GameCardContainer>
+					))}
 				{games.map((game) => (
-					<GameCard key={game.id} game={game} />
+					<GameCardContainer>
+						<GameCard key={game.id} game={game} />
+					</GameCardContainer>
 				))}
 			</div>
 		</>

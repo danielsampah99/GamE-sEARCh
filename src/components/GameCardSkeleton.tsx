@@ -1,7 +1,7 @@
 const GameCardSkeleton = () => {
 	return (
 		<>
-			<div className="h-[280px] w-full animate-pulse rounded-lg shadow-lg ">
+			<div className="h-[280px] w-full animate-pulse">
 				<div className="flex h-3/4 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
 					<svg
 						className="h-10 w-10 text-gray-200 dark:text-gray-600"

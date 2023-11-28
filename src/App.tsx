@@ -1,3 +1,4 @@
+import GameGrid from "./components/GameGrid";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
 				<div className=" hidden bg-yellow-500 text-white md:grid md:w-auto">
 					Aside
 				</div>
-				<div className="bg-red-500">Main</div>
+				<GameGrid />
 			</div>
 		</>
 	);

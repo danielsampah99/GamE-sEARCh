@@ -4,9 +4,10 @@ import GenreListSkeleton from "./GenreListSkeleton";
 
 interface Props {
 	onSelectedGenre: (genre: Genre) => void;
+	selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectedGenre }: Props) => {
+const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
 	const { data, loading } = useGenres();
 
 	return (
@@ -18,14 +19,18 @@ const GenreList = ({ onSelectedGenre }: Props) => {
 						<button
 							onClick={() => onSelectedGenre(genre)}
 							key={genre.id}
-							className="flex py-4 "
+							className={`flex py-4 ${
+								genre.id === selectedGenre?.id
+									? "font-bold"
+									: "font-normal"
+							} `}
 						>
 							<img
 								className="h-[32px] rounded-lg"
 								src={getCroppedImageUrl(genre.image_background)}
 								alt={genre.slug}
 							/>
-							<p className="ml-4 text-xl hover:underline ">
+							<p className={`ml-4 text-xl hover:underline`}>
 								{genre.name}
 							</p>
 						</button>

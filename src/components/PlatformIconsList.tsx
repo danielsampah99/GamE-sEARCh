@@ -34,7 +34,7 @@ const PlatformIconsList = ({ platforms }: Props) => {
 			<div className="flex flex-row space-x-2 text-zinc-500">
 				{platforms.map((platform) => {
 					const IconComponent = iconMap[platform.slug];
-					return <IconComponent key={platform.slug} />;
+					return <IconComponent key={platform.id} />;
 				})}
 			</div>
 		</>

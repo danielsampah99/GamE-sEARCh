@@ -10,7 +10,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
 	return (
 		<>
-			<div className="">
+			<div>
 				<img
 					src={getCroppedImageUrl(game.background_image)}
 					alt={game.name}

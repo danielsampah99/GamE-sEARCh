@@ -10,15 +10,12 @@ interface Props {
 const GameCard = ({ game }: Props) => {
 	return (
 		<>
-			<div>
+			<div className="shadow:md dark:shadow-zinc-950/40">
 				<img
 					src={getCroppedImageUrl(game.background_image)}
 					alt={game.name}
 				/>
-				<div className="p-3">
-					<h2 className="mb-2 text-xl font-medium text-zinc-800 subpixel-antialiased sm:text-center ">
-						{game.name}
-					</h2>
+				<div className="p-3 dark:bg-zinc-900 dark:text-zinc-300">
 					<div className="flex flex-row justify-between">
 						<PlatformIconsList
 							platforms={game.parent_platforms.map(
@@ -27,6 +24,9 @@ const GameCard = ({ game }: Props) => {
 						/>
 						<CriticScore score={game.metacritic} />
 					</div>
+					<h2 className="mb-2 text-xl font-medium text-zinc-800 subpixel-antialiased dark:text-zinc-300 sm:text-center ">
+						{game.name}
+					</h2>
 				</div>
 			</div>
 		</>

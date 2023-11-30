@@ -2,34 +2,33 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import { Genre } from "../hooks/useGenres";
+import { GameQuery } from "../App";
 
 interface Props {
-	selectedGenre: Genre | null;
+	gameQuery: GameQuery;
 }
 
-const GameGrid = ({ selectedGenre }: Props) => {
-	const { data, errors, loading } = useGames(selectedGenre);
+const GameGrid = ({ gameQuery }: Props) => {
+	const { data, errors, loading } = useGames(gameQuery);
 
 	const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+	if (errors) return <p>{errors}</p>;
+
 	return (
-		<>
-			{errors && <p>{errors}</p>}
-			<div className="grid grid-cols-1 justify-around gap-y-8 px-4 md:col-span-4 md:grid-cols-2 md:gap-x-7 lg:col-span-4 lg:grid-cols-3">
-				{loading &&
-					skeletons.map((skeleton) => (
-						<GameCardContainer key={skeleton}>
-							<GameCardSkeleton />
-						</GameCardContainer>
-					))}
-				{data.map((game) => (
-					<GameCardContainer key={game.id}>
-						<GameCard key={game.id} game={game} />
+		<div className="grid gap-5 pr-3 md:grid-cols-2 lg:grid-cols-3 lg:pr-2">
+			{loading &&
+				skeletons.map((skeleton) => (
+					<GameCardContainer key={skeleton}>
+						<GameCardSkeleton />
 					</GameCardContainer>
 				))}
-			</div>
-		</>
+			{data.map((game) => (
+				<GameCardContainer key={game.id}>
+					<GameCard game={game} />
+				</GameCardContainer>
+			))}
+		</div>
 	);
 };
 

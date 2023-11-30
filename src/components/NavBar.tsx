@@ -1,20 +1,22 @@
 import logo from "../assets/logo.webp";
+import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+interface Props {
+	onSearch: (searchText: string) => void;
+}
+
+const NavBar = ({ onSearch }: Props) => {
 	return (
-		<nav className="flex h-fit grid-flow-col flex-wrap items-center justify-between dark:bg-zinc-800 md:col-span-full">
+		<nav className="fixed top-0 z-50 flex w-screen flex-row items-center justify-between bg-white px-2 py-1 shadow-lg dark:bg-zinc-700  dark:shadow-zinc-900/90">
 			<img
 				className="h-12 w-12 md:h-16 md:w-16"
 				src={logo}
 				alt="Website Logo"
 			/>
-
-			<button
-				className="mr-2 rounded-lg bg-zinc-800 px-2 py-1 text-base font-medium text-neutral-300 shadow-lg shadow-zinc-500/80 dark:bg-zinc-700 dark:shadow-zinc-800/60 md:px-4 md:py-2 md:text-lg md:font-semibold"
-				type="button"
-			>
-				Dark Mode
-			</button>
+			<SearchInput onSearch={onSearch} />
+			<h1 className="mx-2 whitespace-nowrap  px-2 py-1 font-mono text-base font-medium italic dark:text-neutral-300 md:px-4 md:py-2 md:text-lg md:font-semibold">
+				GamE sEARCh
+			</h1>
 		</nav>
 	);
 };

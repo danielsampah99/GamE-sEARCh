@@ -10,7 +10,7 @@ interface fetchResponseSchema<T> {
 const useData = <T>(
 	endpoint: string,
 	requestConfig?: AxiosRequestConfig,
-	deps?: unknown[],
+	deps?: any[],
 ) => {
 	const [data, setData] = useState<T[]>([]);
 	const [errors, setErrors] = useState("");
@@ -32,12 +32,12 @@ const useData = <T>(
 				})
 				.catch((err) => {
 					if (err instanceof CanceledError) return;
-					setLoading(false);
 					setErrors(err.message);
+					setLoading(false);
 				});
 			return () => controller.abort();
-			// eslint-disable-next-line react-hooks/exhaustive-deps
-		}, deps ? [...deps] : [endpoint, requestConfig],
+		},
+		deps ? [...deps] : [],
 	);
 
 	return { data, errors, loading };

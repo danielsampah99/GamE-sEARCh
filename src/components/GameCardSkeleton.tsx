@@ -1,8 +1,8 @@
 const GameCardSkeleton = () => {
 	return (
 		<>
-			<div className="h-[280px] w-full animate-pulse">
-				<div className="flex h-3/4 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
+			<div className="h-[280px] w-full animate-pulse rounded-lg">
+				<div className="flex h-3/4 w-full items-center justify-center overflow-hidden rounded bg-gray-300 dark:bg-gray-700">
 					<svg
 						className="h-10 w-10 text-gray-200 dark:text-gray-600"
 						aria-hidden="true"
@@ -14,8 +14,8 @@ const GameCardSkeleton = () => {
 					</svg>
 				</div>
 				<div className="w-full space-y-2 p-3">
-					<div className=" h-4  rounded-full bg-gray-200 dark:bg-gray-700"></div>
-					<div className=" h-4  rounded-full bg-gray-200 dark:bg-gray-700"></div>
+					<div className=" h-4 rounded-full bg-gray-200 dark:bg-gray-500 "></div>
+					<div className=" h-4  rounded-full dark:bg-gray-500"></div>
 				</div>
 			</div>
 		</>
